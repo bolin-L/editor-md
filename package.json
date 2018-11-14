@@ -1,6 +1,6 @@
 {
-  "name": "simplemde",
-  "version": "1.11.2",
+  "name": "editor-mk",
+  "version": "1.0.0",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
   "keywords": [
     "embeddable",
@@ -9,13 +9,12 @@
     "javascript",
     "wysiwyg"
   ],
-  "homepage": "https://github.com/NextStepWebs/simplemde-markdown-editor",
+  "homepage": "https://github.com/bolin-L/editor-md",
   "main": "./src/js/simplemde.js",
   "license": "MIT",
-  "company": "Next Step Webs, Inc.",
   "author": {
-    "name": "Wes Cossick",
-    "url": "http://www.WesCossick.com"
+    "name": "liaobolin",
+    "url": "http://www.bolin.site"
   },
   "bugs": {
     "url": "https://github.com/NextStepWebs/simplemde-markdown-editor/issues"
@@ -43,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NextStepWebs/simplemde-markdown-editor"
+    "url": "https://github.com/bolin-L/editor-md"
   }
 }
