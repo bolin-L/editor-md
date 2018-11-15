@@ -246,7 +246,7 @@ function toggleCodeBlock(editor) {
     var fenceCharsToInsert = editor.options.blockStyles.code;
 
     function fencing_line(line) {
-		/* return true, if this is a ``` or ~~~ line */
+        /* return true, if this is a ``` or ~~~ line */
         if(typeof line !== "object") {
             throw "fencing_line() takes a 'line' object (not a line number, or line text).  Got: " + typeof line + ": " + line;
         }
@@ -259,12 +259,12 @@ function toggleCodeBlock(editor) {
     }
 
     function code_type(cm, line_num, line, firstTok, lastTok) {
-		/*
-		 * Return "single", "indented", "fenced" or false
-		 *
-		 * cm and line_num are required.  Others are optional for efficiency
-		 *   To check in the middle of a line, pass in firstTok yourself.
-		 */
+        /*
+         * Return "single", "indented", "fenced" or false
+         *
+         * cm and line_num are required.  Others are optional for efficiency
+         *   To check in the middle of a line, pass in firstTok yourself.
+         */
         line = line || cm.getLineHandle(line_num);
         firstTok = firstTok || cm.getTokenAt({
                 line: line_num,
@@ -619,18 +619,12 @@ function drawLink(editor) {
 /**
  * Action for drawing an img.
  */
-function drawImage(editor) {
+function drawImage(editor, imageUrl) {
     var cm = editor.codemirror;
     var stat = getState(cm);
     var options = editor.options;
-    var url = "http://";
-    if(options.promptURLs) {
-        url = prompt(options.promptTexts.image);
-        if(!url) {
-            return false;
-        }
-    }
-    _replaceSelection(cm, stat.image, options.insertTexts.image, url);
+
+    _replaceSelection(cm, stat.image, options.insertTexts.image, imageUrl);
 }
 
 /**
@@ -1602,8 +1596,8 @@ SimpleMDE.prototype.cleanBlock = function() {
 SimpleMDE.prototype.drawLink = function() {
     drawLink(this);
 };
-SimpleMDE.prototype.drawImage = function() {
-    drawImage(this);
+SimpleMDE.prototype.drawImage = function(imageUrl) {
+    drawImage(this, imageUrl);
 };
 SimpleMDE.prototype.drawTable = function() {
     drawTable(this);
