@@ -616,6 +616,10 @@ function drawLink(editor) {
     _replaceSelection(cm, stat.link, options.insertTexts.link, url);
 }
 
+function getPreviewContent(editor) {
+    return editor.markdown(editor.value());
+}
+
 /**
  * Action for drawing an img.
  */
@@ -1550,10 +1554,14 @@ SimpleMDE.redo = redo;
 SimpleMDE.togglePreview = togglePreview;
 SimpleMDE.toggleSideBySide = toggleSideBySide;
 SimpleMDE.toggleFullScreen = toggleFullScreen;
+SimpleMDE.getPreviewContent = getPreviewContent;
 
 /**
  * Bind instance methods for exports.
  */
+SimpleMDE.prototype.getPreviewContent = function() {
+    return getPreviewContent(this);
+};
 SimpleMDE.prototype.toggleBold = function() {
     toggleBold(this);
 };
