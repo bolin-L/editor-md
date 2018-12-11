@@ -620,6 +620,11 @@ function getPreviewContent(editor) {
     return editor.markdown(editor.value());
 }
 
+
+function getHighlightPreviewContent(editor) {
+    return editor.markdown(editor.value(), true);
+}
+
 /**
  * Action for drawing an img.
  */
@@ -1145,7 +1150,7 @@ function SimpleMDE(options) {
 /**
  * Default markdown render.
  */
-SimpleMDE.prototype.markdown = function(text) {
+SimpleMDE.prototype.markdown = function(text, highlight) {
     if(marked) {
         // Initialize
         var markedOptions = {};
@@ -1158,7 +1163,7 @@ SimpleMDE.prototype.markdown = function(text) {
             markedOptions.breaks = true;
         }
 
-        if(this.options && this.options.renderingConfig && this.options.renderingConfig.codeSyntaxHighlighting === true && window.hljs) {
+        if(this.options && this.options.renderingConfig && this.options.renderingConfig.codeSyntaxHighlighting === true && window.hljs || highlight) {
             markedOptions.highlight = function(code) {
                 return window.hljs.highlightAuto(code).value;
             };
@@ -1555,12 +1560,16 @@ SimpleMDE.togglePreview = togglePreview;
 SimpleMDE.toggleSideBySide = toggleSideBySide;
 SimpleMDE.toggleFullScreen = toggleFullScreen;
 SimpleMDE.getPreviewContent = getPreviewContent;
+SimpleMDE.getHighlightPreviewContent = getHighlightPreviewContent;
 
 /**
  * Bind instance methods for exports.
  */
 SimpleMDE.prototype.getPreviewContent = function() {
     return getPreviewContent(this);
+};
+SimpleMDE.prototype.getHighlightPreviewContent = function() {
+    return getHighlightPreviewContent(this);
 };
 SimpleMDE.prototype.toggleBold = function() {
     toggleBold(this);
