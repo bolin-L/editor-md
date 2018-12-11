@@ -1167,6 +1167,10 @@ SimpleMDE.prototype.markdown = function(text, highlight) {
             markedOptions.highlight = function(code) {
                 return window.hljs.highlightAuto(code).value;
             };
+        } else {
+            markedOptions.highlight = function(code) {
+                return code;
+            };
         }
 
 
