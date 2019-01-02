@@ -13,7 +13,6 @@ require("codemirror/mode/xml/xml.js");
 var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var marked = require("marked");
 
-
 // Some variables
 var isMac = /Mac/.test(navigator.platform);
 
@@ -1179,7 +1178,10 @@ SimpleMDE.prototype.markdown = function(text, highlight) {
 
 
         // Return
-        return marked(text);
+        const markdownText = marked(text);
+        const xssReg = /<\w+[^>]*\son\w*/ig;
+
+        return markdownText.replace(xssReg, function($0) { return '&lt;' + $0.slice(1) });
     }
 };
 
