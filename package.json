@@ -1,6 +1,6 @@
 {
   "name": "editor-mk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
   "keywords": [
     "embeddable",
@@ -22,23 +22,23 @@
   "dependencies": {
     "codemirror": "*",
     "codemirror-spell-checker": "*",
+    "gulp": "^3.9.1",
     "marked": "*"
   },
   "devDependencies": {
     "browserify": "*",
     "debug": "*",
     "eslint": "*",
-    "gulp": "*",
+    "gulp-clean-css": "*",
     "gulp-concat": "*",
     "gulp-debug": "*",
     "gulp-eslint": "*",
     "gulp-header": "*",
     "gulp-jsbeautifier": "*",
-    "gulp-clean-css": "*",
     "gulp-rename": "*",
     "gulp-uglify": "*",
-    "vinyl-source-stream": "*",
-    "vinyl-buffer": "*"
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
   },
   "repository": {
     "type": "git",
